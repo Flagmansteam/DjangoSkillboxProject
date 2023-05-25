@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import grappelli
 
 urlpatterns = [
+    path('grappelli', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('shop/', include('shopapp.urls')),
 ]
