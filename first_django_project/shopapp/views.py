@@ -4,7 +4,8 @@ from timeit import default_timer
 from django.contrib.auth.models import Group
 from .models import Product, Order
 
-def shop_index(request:HttpRequest):
+
+def shop_index(request: HttpRequest):
     products = [
         ('Laptop', 1999),
         ('Desktop', 2999),
@@ -16,12 +17,13 @@ def shop_index(request:HttpRequest):
     }
     return render(request, 'shopapp/shop-index.html', context=context)
 
+
 def groups_list(request: HttpRequest):
     context = {
-      "groups": Group.objects.prefetch_related('permissions').all(),
+        "groups": Group.objects.prefetch_related('permissions').all(),
 
     }
-    return render(request, 'shopapp/groups-list.html', context= context)
+    return render(request, 'shopapp/groups-list.html', context=context)
 
 
 def products_list(request: HttpRequest):
@@ -31,10 +33,15 @@ def products_list(request: HttpRequest):
     return render(request, 'shopapp/products-list.html', context=context)
 
 
-def orders_list(request:HttpRequest):
+def orders_list(request: HttpRequest):
     context = {
-    "orders": Order.objects.select_related("user").prefetch_related("products").all(),
+        "orders": Order.objects.select_related("user").prefetch_related("products").all(),
     }
     return render(request, 'shopapp/orders-list.html', context=context)
 
-# Laptop
+
+def categories(request, catid):
+    return HttpResponse(f"<h1> Test categories </h1><p>{catid}</p>")
+
+def archive(request, year):
+    return HttpResponse(f"<h1> Archive</h1><p>{year}</p>")

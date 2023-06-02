@@ -20,6 +20,8 @@ import grappelli
 
 urlpatterns = [
     path('grappelli', include('grappelli.urls')),
+    # path('', include('shopapp.urls')),
     path('admin/', admin.site.urls),
     path('shop/', include('shopapp.urls')),
+    path('req/', include('requestdataapp.urls')),
 ]
