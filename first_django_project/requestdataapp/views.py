@@ -19,18 +19,15 @@ def user_form(request:HttpRequest) -> HttpResponse:
     return render(request, "requestdataapp/user-bio-form.html")
 
 def handle_file_upload(request: HttpRequest) -> HttpResponse:
-    if request.method == "POST" and request.FILES.get("myfile"):
+    if request.method == "POST" and request.FILES("myfile"):
         myfile = request.FILES["myfile"]
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        #practic work part
-        file_size = fs.size(filename)
-        if file_size > 1048576:  # 1mb
-            fs.delete(filename)
-            print('file is deleted:', filename)
-            return render(request, 'requestdataapp/error-message.html')
-        else:
+        if myfile.size < 1048576:  # 1mb
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
             print("save file", filename)
+        else:
+            return render(request, 'requestdataapp/error-message.html')
+
 
     return render(request,"requestdataapp/file-upload.html")
 
