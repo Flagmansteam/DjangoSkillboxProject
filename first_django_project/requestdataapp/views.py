@@ -1,13 +1,12 @@
 from django.core.files.storage import FileSystemStorage
-
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from .forms import UserBioForm, UploadFileForm
 
 def process_get_view(request:HttpRequest)-> HttpResponse:
     a = request.GET.get("a","")
     b = request.GET.get("b", "")
     result = a + b
-
     context = {
         "a": a,
         "b": b,
@@ -20,14 +19,22 @@ def user_form(request:HttpRequest) -> HttpResponse:
 
 def handle_file_upload(request: HttpRequest) -> HttpResponse:
     if request.method == "POST" and request.FILES("myfile"):
-        myfile = request.FILES["myfile"]
-        if myfile.size < 1048576:  # 1mb
-            fs = FileSystemStorage()
-            filename = fs.save(myfile.name, myfile)
-            print("save file", filename)
-        else:
-            return render(request, 'requestdataapp/error-message.html')
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            # myfile = request.FILES["myfile"]
+            myfile = form.cleaned_data["file"]
+            if myfile.size < 1048576:  # 1mb
+                fs = FileSystemStorage()
+                filename = fs.save(myfile.name, myfile)
+                print("save file", filename)
+            else:
+                return render(request, 'requestdataapp/error-message.html')
+    else:
+        form = UploadFileForm()
+    context = {
+        "form": form,
+    }
 
 
-    return render(request,"requestdataapp/file-upload.html")
+    return render(request,"requestdataapp/file-upload.html", context=context)
 

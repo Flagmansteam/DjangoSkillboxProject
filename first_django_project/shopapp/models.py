@@ -1,16 +1,12 @@
 from typing import Iterable
-
 from django.contrib.auth.models import User
 from django.db import models
-
-
 
 class Product(models.Model):
     class Meta:
         ordering = ["name", "price"]
         # db_table = "tech_products"
         verbose_name_plural = "Products"
-
 
     name = models.CharField(max_length=100)
     description = models.TextField(null=False, blank=True)
@@ -35,3 +31,6 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     products =models.ManyToManyField(Product, related_name="orders")  #Связь с заказом на продукте идёт через orders
+
+def __str__(self):
+    return f"{self.delivery_adress}({self.user},{self.promocode}"
