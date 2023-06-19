@@ -69,7 +69,7 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = [
         ProductInline,
     ]
-    list_display = "delivery_address", "promocode", "created_at", "user_verbose"
+    list_display = "delivery_adress", "promocode", "created_at", "user_verbose"
 
     def get_queryset(self, request):
         return Order.objects.select_related("user").prefetch_related("products")

@@ -1,6 +1,8 @@
 from django import forms
 from .models import Product, Order
 
+from django.contrib.auth.models import Group
+
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
@@ -16,5 +18,12 @@ class OrderForm(forms.ModelForm):
             'delivery_adress': 'Адрес доставки',
             'promocode': 'Промокод',
         }
+
+
+class GroupForm(forms.ModelForm):
+    class Meta:
+        model = Group
+        fields = ["name"]
+
 
 

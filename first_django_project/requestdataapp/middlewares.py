@@ -27,11 +27,11 @@ class CountRequestsMiddleware:
 
     def __call__(self, request: HttpRequest):
         ip = request.META.get('REMOTE_ADDR')
-        if ip in self.requests:
-            delta = time.time() - self.requests[ip]
-            if delta < 10:
-                print('It has been less than 10 seconds since the last request from your ip address')
-                return render(request, 'requestdataapp/error-request.html')
+        # if ip in self.requests:
+        #     delta = time.time() - self.requests[ip]
+        #     if delta < 10:
+        #         print('It has been less than 10 seconds since the last request from your ip address')
+        #         return render(request, 'requestdataapp/error-request.html')
         self.requests[ip] = time.time()
         self.request_count += 1
         print("request count", self.request_count)
