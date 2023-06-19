@@ -122,32 +122,32 @@ class ProductDeleteView(DeleteView):
 
 
 
-class OrderListView(ListView):
-    template_name = "shopapp/order_list.html"
-    model = Order
-    context_object_name = "object_list"
-
-
-
 # class OrderListView(ListView):
-#     queryset = (
-#         Order.objects
-#         .select_related("user")
-#         .prefetch_related("products")
-#     )
+#     template_name = "shopapp/order_list.html"
+#     model = Order
+#     context_object_name = "object_list"
 
-class OrderDetailView(DetailView):
-    template_name = "shopapp/order_detail.html"
-    model = Order
-    context_object_name = "object_list"
 
+
+class OrderListView(ListView):
+    queryset = (
+        Order.objects
+        .select_related("user")
+        .prefetch_related("products")
+    )
 
 # class OrderDetailView(DetailView):
-#     queryset = (
-#         Order.objects
-#         .select_related("user")
-#         .prefetch_related("products")
-#     )
+#     template_name = "shopapp/order_detail.html"
+#     model = Order
+#     context_object_name = "object_list"
+
+
+class OrderDetailView(DetailView):
+    queryset = (
+        Order.objects
+        .select_related("user")
+        .prefetch_related("products")
+    )
 
 class OrderCreateView(CreateView):
     model = Order

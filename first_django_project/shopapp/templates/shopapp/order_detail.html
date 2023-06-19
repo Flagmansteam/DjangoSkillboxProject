@@ -9,9 +9,9 @@
     <h1>Order # {{ object.pk }} </h1>
 
    <div>
-     <p>Order by {% firstof order.user.first_name order.user.username %} </p>
-     <p>Promocode: <code>{{ order.promocode }}</code></p>
-     <p>Delivery adress: {{ order.delivery_adress }}</p>
+     <p>Order by {% firstof object.user.first_name object.user.username %} </p>
+     <p>Promocode: <code>{{ object.promocode }}</code></p>
+     <p>Delivery adress: {{ object.delivery_adress }}</p>
      <div>
          Product in order:
          <ul>
@@ -23,12 +23,12 @@
      </div>
    </div>
     <div>
-       <a href ="{% url 'shopapp:order_update' pk=product.pk %}">Update order</a>
+       <a href ="{% url 'shopapp:order_update' pk=object.pk %}">Update order</a>
     </div>
     <div>
-       <a href ="{% url 'shopapp:order_delete' pk=product.pk %}">Delete order</a>
+       <a href ="{% url 'shopapp:order_delete' pk=object.pk %}">Delete order</a>
     </div>
    <div>
-       <a href="{% url 'shopapp:orders_list' %}">Back to order</a>
+       <a href="{% url 'shopapp:order_list' %}">Back to order</a>
    </div>
 {% endblock %}
