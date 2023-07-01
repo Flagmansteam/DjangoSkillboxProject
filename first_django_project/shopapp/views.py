@@ -7,7 +7,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Product, Order
 from .forms import *
-
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin # позволяет создать любую функцию для проверки
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
@@ -92,11 +92,15 @@ def archive(request, year):
     return HttpResponse(f"<h1> Archive</h1><p>{year}</p>")
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(UserPassesTestMixin,CreateView):
+    def test_func(self):
+        return self.request.user.is_superuser
     model = Product
     fields = "name", "price", "description", "discount"
     success_url = reverse_lazy("shopapp:products_list")
-
+    def form_valid(self,form): # переопределяем метод для создания продукта, чтобы установить текущее значение created by текущему пользователю
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 class ProductUpdateView(UpdateView):
     model = Product
@@ -129,7 +133,7 @@ class ProductDeleteView(DeleteView):
 
 
 
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
         Order.objects
         .select_related("user")
@@ -142,7 +146,8 @@ class OrderListView(ListView):
 #     context_object_name = "object_list"
 
 
-class OrderDetailView(DetailView):
+class OrderDetailView(PermissionRequiredMixin,DetailView):
+    permission_required = "view_order"
     queryset = (
         Order.objects
         .select_related("user")
@@ -177,3 +182,4 @@ class OrderDeleteView(DeleteView):
         return HttpResponseRedirect(success_url)
 
 
+#декоратор login_required для того, чтобы требовать аутентификацию пользователей перед созданием продукта.

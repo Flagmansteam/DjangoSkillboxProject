@@ -11,7 +11,9 @@ urlpatterns = [
             redirect_authenticated_user=True
         ),
         name="login"),
-    path("logout", MyLogoutView.as_view(), name="logout"),
+    path("logout/", MyLogoutView.as_view(), name="logout"),
+    path("about-me/", AboutMeView.as_view(), name="about-me"),
+    path("register/", RegisterView.as_view(), name="register"),
     path("cookie/get", get_cookie_view, name="cookie-get"),
     path("cookie/set", set_cookie_view, name="cookie-set"),
     path("session/set", set_session_view, name="session-set"),
