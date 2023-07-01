@@ -94,7 +94,10 @@ def archive(request, year):
 
 class ProductCreateView(UserPassesTestMixin,CreateView):
     def test_func(self):
-        return self.request.user.is_superuser
+        if self.request.user.is_superuser or self.request.user.has_perm("shopapp.create-product"):
+            return True
+        return False
+
     model = Product
     fields = "name", "price", "description", "discount"
     success_url = reverse_lazy("shopapp:products_list")
@@ -104,13 +107,8 @@ class ProductCreateView(UserPassesTestMixin,CreateView):
 
 class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
-        if self.request.user.is_superuser:
+        if self.request.user.is_superuser or self.request.user.has_perm("shopapp.product_update_form") or product.author == self.request.user:
             return True
-        if self.request.user.has_perm("shopapp.product_update_form"):
-            product = self.get_object()
-        if product.author == self.request.user:
-            return True
-
         return False
 
 

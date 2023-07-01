@@ -20,8 +20,11 @@
      {% else %}
         <h3> No products yet</h3>
      {% endif %}
-
-    <div>
-        <a href="{% url 'shopapp:product_create' %}">Create a new product</a>
-    </div>
+    {% if perms.product.add_product %}
+        <div>
+            <a href="{% url 'shopapp:product_create' %}">Create a new product</a>
+        </div>
+    {% else %}
+        <div>You have not permissions to create product.</div>
+    {% endif %}
 {% endblock %}
