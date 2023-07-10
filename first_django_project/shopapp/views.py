@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from timeit import default_timer
 from django.contrib.auth.models import Group
@@ -8,6 +8,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from .models import Product, Order
 from .forms import *
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin # позволяет создать любую функцию для проверки
+from django.contrib.auth.models import User
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
@@ -194,3 +195,40 @@ class OrderDeleteView(DeleteView):
 
 
 #декоратор login_required для того, чтобы требовать аутентификацию пользователей перед созданием продукта.
+
+class ProductsDataExportView(View):
+    def get(self, request: HttpRequest)-> JsonResponse:
+        products = Product.objects.order_by("pk").all()
+        products_data = [
+            {
+                "pk": product.pk,
+                "name": product.name,
+                "price": product.price,
+                "archived": product.archived,
+            }
+            for product in products
+        ]
+        return JsonResponse({"products": products_data})
+
+
+
+class OrdersDataExportView(UserPassesTestMixin, View):
+      def test_func(self):
+          return self.request.user.is_staff
+
+      def get(self, request):
+          orders = Order.objects.order_by("pk").all()
+          orders_data = [
+              {
+                  'order_id': order.id,
+                  'address': order.delivery_adress,
+                  'promocode': order.promocode,
+                  'user': order.user,
+              }
+              for order in orders
+          ]
+          return JsonResponse({"orders": orders_data})
+
+
+
+

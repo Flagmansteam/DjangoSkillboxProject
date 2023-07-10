@@ -31,6 +31,7 @@ class Order(models.Model):
     promocode = models.CharField(max_length=20, null=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
+    description = models.TextField(null=False, blank=True)
     products =models.ManyToManyField(Product, related_name="orders")  #Связь с заказом на продукте идёт через orders
 
 def __str__(self):
