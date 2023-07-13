@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 from string import ascii_letters
 from random import choices
-
+from django.conf import settings
 from .models import Product, Order
 from .utils import add_two_numbers
 
@@ -153,9 +153,9 @@ class OrderDetailViewTestCase(TestCase):
 
 class OrdersExportTestCase(TestCase):
     fixtures = [
-        'orders.json',
         'users.json',
-        'productse.json',
+        'products.json',
+        'orders.json',
     ]
     @classmethod
     def setUpClass(cls): # Создание пользвателя и добавление разрешения на просмотр заказов
