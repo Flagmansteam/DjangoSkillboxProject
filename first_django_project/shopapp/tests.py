@@ -151,6 +151,7 @@ class OrderDetailViewTestCase(TestCase):
         self.assertTemplateUsed((response, 'order_detail.html'))
 
 
+
 class OrdersExportTestCase(TestCase):
     fixtures = [
         'users.json',
