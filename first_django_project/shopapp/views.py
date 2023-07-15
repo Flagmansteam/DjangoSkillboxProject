@@ -95,7 +95,7 @@ def archive(request, year):
 
 class ProductCreateView(UserPassesTestMixin,CreateView):
     def test_func(self):
-        if self.request.user.is_superuser or self.request.user.has_perm("shopapp.create-product"):
+        if self.request.user.is_superuser or self.request.user.has_perm('add_product'):
             return True
         return False
 

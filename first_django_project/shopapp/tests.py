@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Permission
+from django.contrib.contenttypes.models import ContentType
 from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
@@ -14,21 +15,49 @@ class AddTwoNumbersTestCase(TestCase):
         result = add_two_numbers(2,3)
         self.assertEqual(result,5)
 
-
+# python manage.py test shopapp.tests.ProductCreateViewTestCase
 class ProductCreateViewTestCase(TestCase):
-    def setUp(self)->None:  # для предварительной настройки
-        self.product_name ="".join(choices(ascii_letters, k=10)) # получение рандомного имени продукта
-        Product.objects.filter(name=self.product_name).delete() # проверка и удаленеи объектов в случаем одинаковых названий
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = User.objects.create_user(username='bob_test', password='qwerty')
+        permission = Permission.objects.get(codename='add_product')
+        cls.user.user_permissions.add(permission)
+        print('User has perm1:', cls.user.has_perm('add_product'))
+
+    def setUp(self) -> None:  # для предварительной настройки
+        self.user = User.objects.get(username='bob_test')
+        self.client.force_login(self.user)
+        print('User has perm2:', self.user.has_perm('add_product'))
+        self.product_name = "".join(choices(ascii_letters, k=10))  # получение рандомного имени продукта
+        Product.objects.filter(
+            name=self.product_name).delete()  # проверка и удаленеи объектов в случаем одинаковых названий
+
+
+    @classmethod
+    def tearDownClass(cls):  # Удаление пользователя
+        super().tearDownClass()
+        User.objects.filter(username='bob_test').delete()
+
+
     def test_create_product(self):
-        response = self.client.post(reverse("shopapp:product_create"), {
+        response = self.client.post(
+            reverse("shopapp:product_create"),
+            {
             "name": self.product_name,
             "price": "123.45",
             "description": "Good Table",
-            "discount": "10"
-        }
+            "discount": "10",
+            }
         )
         self.assertRedirects(response, reverse("shopapp:products_list"))
-        self.assertTrue(Product.objects.filter(name=self.product_name).exists()) # проверка, что продукт создан
+        self.assertTrue(
+            Product.objects.filter(name=self.product_name).exists()
+        ) # проверка, что продукт создан
+
+
+
 
 class ProductDetailsViewTestCase(TestCase):
    @classmethod
@@ -125,7 +154,7 @@ class ProductsExportViewTestCase(TestCase):
 class OrderDetailViewTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
-        super().setUpClass(cls)
+        super().setUpClass()
         user = User.objects.create_user(username="bob_test", password="qwerty")
         permission = Permission.objects.get(codename ='view_order')
         user.user_permissions.add(permission)

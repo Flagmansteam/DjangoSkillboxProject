@@ -33,6 +33,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     description = models.TextField(null=False, blank=True)
     products =models.ManyToManyField(Product, related_name="orders")  #Связь с заказом на продукте идёт через orders
-
+# Поле receipt для загрузки чека после завершения заказа
+    receipt = models.FileField(null=True, upload_to='orders/receipts/')
 def __str__(self):
     return f"{self.delivery_adress}({self.user},{self.promocode}"
