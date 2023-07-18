@@ -2,10 +2,14 @@ from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
 from .admin_mixins import ExportAsCSVMixin
-from .models import Product, Order
+from .models import Product, Order, ProductImage
+
 
 class OrderInline(admin.TabularInline):
     model = Product.orders.through
+
+class ProductInline(admin.StackedInline):
+    model = ProductImage
 
 @admin.action(description="Archive products") #функция для объявления действия, которое будет архивировать записи
 def mark_archived(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: QuerySet):
@@ -23,7 +27,7 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
         "export_csv",
     ]
     inlines = [
-        OrderInline,
+        OrderInline,ProductInline
     ]#Для отображения связи продукта с заказом
     list_display = "pk", "name", "description_short", "price", "discount", "created_at", "archived"
     list_display_links = "pk", "name"
@@ -36,6 +40,9 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
         ("Price options", {
             "fields": ("price", "discount"),
             "classes": ("wide", "collapse",), # поля цена и скидка свернуты, присутствует кнопка показать
+        }),
+        ("Images", {
+            "fields": ("preview"),
         }),
         ("Extra options", {
             "fields": ("archived",),

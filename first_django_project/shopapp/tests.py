@@ -15,7 +15,7 @@ class AddTwoNumbersTestCase(TestCase):
         result = add_two_numbers(2,3)
         self.assertEqual(result,5)
 
-# python manage.py test shopapp.tests.ProductCreateViewTestCase
+
 class ProductCreateViewTestCase(TestCase):
 
     @classmethod
@@ -81,6 +81,7 @@ class ProductDetailsViewTestCase(TestCase):
    # self.product.delete() agent
 
 # создаём тест, который будет проверять получение списка продуктов
+
 class ProductListViewTestCase(TestCase):
     fixture = [
         'products-fixture.json',
@@ -98,6 +99,7 @@ class ProductListViewTestCase(TestCase):
             transform=lambda p:p.pk,
         )
         self.assertTemplateUsed(response, 'shopapp/products-list.html')
+
 
 class OrdersListViewTestCase(TestCase):
 
@@ -121,19 +123,19 @@ class OrdersListViewTestCase(TestCase):
 # добавим тест, чтобы проверить анонимного пользователя, сделать выход пользователя.  Убедимся, что если пользователь не выполнил вход, то при попытке  запросить список заказов пользователь будет перенаправлен на страницу для входа в приложение
 
 
-    def test_otders_view_not_authenticated(self):
+    def test_orders_view_not_authenticated(self):
         self.client.logout()# выполняемтся выход пользователя, вход которого произведен этапом ранее
-        response = self.client.get(reverse("shopapp:orders_list"))
+        response = self.client.get(reverse("shopapp:order_list"))
         # self.assertRedirects(response, str(settings.LOGIN_URL))
         self.assertEqual(response.status_code, 302)
-        self.assertIn(str("myauth:login"), response.url)
+        self.assertIn(str("/accounts/login/"), response.url)
 
 # создание апи для выгрузки инфо по продуктам
 
+# python manage.py test shopapp.tests.ProductsExportViewTestCase
 class ProductsExportViewTestCase(TestCase):
-    fixtures = [
-        'products-fixture.json'
-    ]
+    fixtures = ['products-fixtures.json']
+
     def test_get_products_view(self): # тест, который проверяет, что данные которые выгрузили совпадают с базой
         response = self.client.get(reverse("shopapp:products-export"))
         self.assertEqual(response.status_code,200)
@@ -142,12 +144,12 @@ class ProductsExportViewTestCase(TestCase):
             {
                 "pk": product.pk,
                 "name": product.name,
-                "price": product.price,
+                "price": str(product.price),
                 "archived": product.archived,
             }
             for product in products
         ]
-        products_data = response.json,
+        products_data = response.json(),
         self.assertEqual(products_data['products'], expected_data)
 
 
