@@ -2,13 +2,15 @@ from django.contrib.auth.decorators import login_required, permission_required, 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.views import LogoutView
-from django.http import HttpRequest, HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.http import HttpRequest, HttpResponse, JsonResponse, HttpResponseBadRequest
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse, reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, CreateView
-from .models import  Profile #  чтобы у новых пользователей появляля профиль
+from django.views.generic import TemplateView, CreateView, ListView
+from .models import Profile  # чтобы у новых пользователей появляля профиль
+from .forms import *
+
 
 class AboutMeView(TemplateView):
     template_name ="myauth/about-me.html"
@@ -84,3 +86,52 @@ def get_session_view(request:HttpRequest)->HttpResponse:
 class FooBarView(View):
     def get(self,request:HttpRequest)->JsonResponse:
         return JsonResponse({"foo":"bar", "spam":"eggs"})
+
+
+def about_me(request: HttpRequest):
+    user_profile = request.user.userprofile
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('about-me')
+    else:
+        form = UserProfileForm(instance=user_profile)
+        return render(request, 'about-me.html',{'form':form})
+
+def user_list(request): # получаем все профили и передаём в шаблон
+    users = Profile.objects.select_related('user').all()
+    return render(request, 'users_list.html', {'users':users})
+
+# class UserListView(ListView):
+#     model = Profile
+#     template_name = 'users_list.html'
+#     context_object_name = 'users'
+
+def user_detail(request,username): # Получаем пользоватеоя и его профиль с помощью имени и передаем в шаблон
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile,user=user)
+    return render(request, 'about-me.html', {'user':user, 'profile':profile})
+
+
+def update_avatar(request,pk):
+    user = get_object_or_404(User, pk = pk)
+    if not request.user.is_staff and request.user != user:
+        return HttpResponse("You do not have permission to perform this action.")
+
+    if 'avatar' in request.FILES:
+        avatar = request.FILES['avatar']
+        if avatar.size>2*1024*1024:
+            return HttpResponseBadRequest("Avatar size is too large")
+
+        if not avatar.content_type.startswith("image/"):
+            return HttpResponseBadRequest("Invalid file type. Only images are allowed")
+
+        user.avatar = avatar
+        return HttpResponse("Avatar updated successfully")
+
+    else:
+        return HttpResponseBadRequest("No avatar file was provided")
+
+    return render(request, 'update_avatar.html',{'form':form, 'user':user})

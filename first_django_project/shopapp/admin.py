@@ -38,11 +38,11 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
             "fields": ("name", "description"),
         }),
         ("Price options", {
-            "fields": ("price", "discount"),
-            "classes": ("wide", "collapse",), # поля цена и скидка свернуты, присутствует кнопка показать
+            "fields": ("price", "discount",),
+            "classes": ("wide", "collapse",),
         }),
         ("Images", {
-            "fields": ("preview"),
+            "fields": ("preview",),
         }),
         ("Extra options", {
             "fields": ("archived",),
@@ -50,6 +50,7 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
             "description": "Extra options. Field 'archived' is for soft delete/"
         })
     ]
+
 
     def description_short(selfself, obj:Product)->str:
         if len(obj.description) < 48:

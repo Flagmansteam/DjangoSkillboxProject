@@ -113,8 +113,6 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
-
-
     model = Product
     # fields = "name", "price", "description", "discount", "preview"
     template_name_suffix = "_update_form"

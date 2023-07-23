@@ -4,7 +4,7 @@ from django.db import models
 
 
 
-def product_preview_directory_path(instance:"Product", filename:str)->str:
+def product_preview_directory_path(instance:"Product", filename: str)->str:
     return "products/product_{pk}/{filename}".format(
         pk=instance.pk,
         filename=filename,

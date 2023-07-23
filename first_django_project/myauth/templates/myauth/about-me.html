@@ -1,4 +1,5 @@
 {% extends 'myauth/base.html' %}
+{% load static %}
 
 {% block title%}
  About me
@@ -14,6 +15,25 @@
       <p>Last_name: {{ user.last_name }} </p>
       <p>Email: {{ user.email }} </p>
       <p>Bio: {{ user.profile.bio }} </p>
+
+      {% if user.profile.avatar %}
+        <img src="{{ user.profile.avatar.url" alt="Avatar">
+        {% if user.is_staff or user == request.user %}
+            <a href="{% url 'update_avatar' user.pk %}">Изменить аватарку</a>
+        {% endif %}
+      {% else %}
+        <p> No avatar found.</p>
+      {% endif %}
+      <form method="POST" enctype = "multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Сохранить изменения</button>
+      </form>
+
+
+
+
+
   {% else %}
     <h2> User is anonymous</h2>
   {% endif %}

@@ -1,15 +1,18 @@
 from django import forms
 from .models import Product, Order
-from multiupload import MultipleFileField
-
 from django.contrib.auth.models import Group
+
+
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = "name", "price", "description", "discount", "preview"
 
-    images = forms.MultipleFileField(widget=forms.ClearableFileInput)
+    images = forms.ImageField(
+        widget=forms.ClearableFileInput(attrs={"multiple":True}),
+    )
 
 
 class OrderForm(forms.ModelForm):
