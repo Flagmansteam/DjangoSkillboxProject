@@ -17,7 +17,7 @@
       <p>Bio: {{ user.profile.bio }} </p>
 
       {% if user.profile.avatar %}
-        <img src="{{ user.profile.avatar.url" alt="Avatar">
+        <img src="{{ user.profile.avatar.url }}" alt="Avatar">
         {% if user.is_staff or user == request.user %}
             <a href="{% url 'myauth:update_avatar' user.pk %}">Изменить аватарку</a>
         {% endif %}
