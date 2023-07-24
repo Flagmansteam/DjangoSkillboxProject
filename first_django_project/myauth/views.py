@@ -102,7 +102,7 @@ def about_me(request: HttpRequest):
 
 def user_list(request): # получаем все профили и передаём в шаблон
     users = Profile.objects.select_related('user').all()
-    return render(request, 'users_list.html', {'users':users})
+    return render(request, 'myauth/users_list.html', {'users':users})
 
 # class UserListView(ListView):
 #     model = Profile
@@ -112,7 +112,7 @@ def user_list(request): # получаем все профили и переда
 def user_detail(request,username): # Получаем пользоватеоя и его профиль с помощью имени и передаем в шаблон
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile,user=user)
-    return render(request, 'about-me.html', {'user':user, 'profile':profile})
+    return render(request, 'myauth/about-me.html', {'user':user, 'profile':profile})
 
 
 def update_avatar(request,pk):
@@ -134,4 +134,4 @@ def update_avatar(request,pk):
     else:
         return HttpResponseBadRequest("No avatar file was provided")
 
-    return render(request, 'update_avatar.html',{'form':form, 'user':user})
+    return render(request, 'myauth/update_avatar.html',{'form':form, 'user':user})

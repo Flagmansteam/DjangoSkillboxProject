@@ -19,7 +19,7 @@
       {% if user.profile.avatar %}
         <img src="{{ user.profile.avatar.url" alt="Avatar">
         {% if user.is_staff or user == request.user %}
-            <a href="{% url 'update_avatar' user.pk %}">Изменить аватарку</a>
+            <a href="{% url 'myauth:update_avatar' user.pk %}">Изменить аватарку</a>
         {% endif %}
       {% else %}
         <p> No avatar found.</p>
