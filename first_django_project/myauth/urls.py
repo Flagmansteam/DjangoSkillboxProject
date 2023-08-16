@@ -12,7 +12,7 @@ urlpatterns = [
         ),
         name="login"),
     path("logout/", MyLogoutView.as_view(), name="logout"),
-    path("hello/", MyLogoutView.as_view(), name="logout"),
+    path("hello/", HelloView.as_view(), name="hello"),
     path("about-me/", AboutMeView.as_view(), name="about-me"),
     path("register/", RegisterView.as_view(), name="register"),
     path("users/", UserListView.as_view(), name="users_list"),

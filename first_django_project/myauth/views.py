@@ -10,11 +10,25 @@ from django.views import View
 from django.views.generic import TemplateView, CreateView, UpdateView, ListView # класс UpdateView даёт функционал для обновления модели
 from .models import Profile
 from .forms import *
+from django.utils.translation import gettext_lazy as _, ngettext
 
 
 class HelloView(View):
+    welcome_message = _("Hello world!")
+
     def get(self,request:HttpRequest)-> HttpResponse:
-        return HttpResponse("<h1>Hello world</h1>")
+        items_str = request.GET.get('items') or 0
+        items = int(items_str)
+        products_line = ngettext(
+            "one product",
+            "{count} products",
+            items,
+        )
+        products_line = products_line.format(count=items)
+        return HttpResponse(
+            f"<h1>{self.welcome_message}</h1>"
+            f"\n<h2>{products_line}</h2>"
+        )
 
 
 # class AboutMeView(TemplateView):
@@ -202,3 +216,5 @@ class AvatarUpdateView(UpdateView):
 #         return HttpResponseBadRequest("No avatar file was provided")
 #
 #     return render(request, 'myauth/update_avatar.html',{'form':form, 'user':user})
+
+

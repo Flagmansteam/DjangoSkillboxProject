@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-
+from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
+
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
@@ -56,7 +57,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'requestdataapp.middlewares.set_useragent_on_request_middleware',
-    'requestdataapp.middlewares.CountRequestsMiddleware'
+    'requestdataapp.middlewares.CountRequestsMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 ]
 
 ROOT_URLCONF = 'first_django_project.urls'
@@ -126,8 +128,11 @@ USE_TZ = True
 
 USE_L10N = True
 
-LOCALE_PATHS =[
-    BASE_DIR/ 'locale/'
+LOCALE_PATHS =[BASE_DIR/'locale']
+
+LANGUAEGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
 ]
 
 # Static files (CSS, JavaScript, Images)

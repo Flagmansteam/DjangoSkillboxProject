@@ -15,7 +15,8 @@ class Product(models.Model):
     class Meta:
         ordering = ["name", "price"]
         # db_table = "tech_products"
-        verbose_name_plural = "Products"
+        verbose_name_plural = "Продукты"
+        verbose_name = "Продукт"
 
     name = models.CharField(max_length=100)
     description = models.TextField(null=False, blank=True)
@@ -47,6 +48,10 @@ class ProductImage(models.Model):
 
 
 class Order(models.Model):
+    class Meta:
+        verbose_name_plural = "Заказы"
+        verbose_name = "Заказ"
+
     delivery_adress = models.TextField(null=True, blank=True)
     promocode = models.CharField(max_length=20, null=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
