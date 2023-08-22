@@ -9,6 +9,44 @@ from .models import Product, Order, ProductImage
 from .forms import *
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin # позволяет создать любую функцию для проверки
 from django.contrib.auth.models import User
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from .serializers import ProductSerializer, OrderSerializer
+
+class ProductViewSet(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends =[
+        SearchFilter,
+        DjangoFilterBackend,
+        OrderingFilter,
+    ]
+    search_fields = ["name","description"]
+    filterset_fields = [
+        "name",
+        "description",
+        "price",
+        "discount",
+        "archived",
+    ]
+    ordering_fields = [
+        "name",
+        "description",
+        "price",
+    ]
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    filter_backends =[
+        SearchFilter,
+        DjangoFilterBackend,
+        OrderingFilter,
+    ]
+    search_fields = ["delivery_adress","description","products", "user", "promocode",]
+    filterset_fields = ["delivery_adress","description","products", "user", "promocode",]
+    ordering_fields = ["delivery_adress","description","products", "user", "promocode",]
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
