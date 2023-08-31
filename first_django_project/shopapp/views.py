@@ -1,3 +1,11 @@
+"""
+
+В этом модуле лежат различные наборы представлений.
+
+Разные view интернет-магазина: по товарам, заказам и т.д.
+
+"""
+
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from timeit import default_timer
@@ -13,8 +21,18 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import ProductSerializer, OrderSerializer
+from drf_spectacular.utils import  extend_schema, OpenApiResponse
 
+
+@extend_schema(description ="Products views CRUD")
 class ProductViewSet(ModelViewSet):
+    """
+
+    Набор представлений для действий над Product.
+
+    Полный CRUD для сущностей товара
+
+    """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends =[
@@ -35,6 +53,19 @@ class ProductViewSet(ModelViewSet):
         "description",
         "price",
     ]
+
+    @extend_schema(
+        summary="Get one product by ID",
+        description="Retrieves product,returns 404 if not found",
+        responses={
+            200:ProductSerializer,
+            404:OpenApiResponse(description="Empty response product by ID not found"),
+        }
+    )
+    def retrieve(self,*args,**kwargs):
+        return super().retrieve(*args,**kwargs)
+
+
 
 class OrderViewSet(ModelViewSet):
     queryset = Order.objects.all()
