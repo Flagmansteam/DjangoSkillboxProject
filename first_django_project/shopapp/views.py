@@ -112,8 +112,10 @@ class GroupsListView(View):
 
 class ProductDetailsView(DetailView):
     template_name = "shopapp/products-details.html"
-    model = Product
+    # model = Product
+    queryset = Product.objects.prefetch_related("images")
     context_object_name = "product"
+
 
 
 class ProductsListView(ListView):
@@ -226,8 +228,9 @@ class ProductDeleteView(DeleteView):
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
         Order.objects
-        .select_related("user")
-        .prefetch_related("products")
+        # .select_related("user")
+        # .prefetch_related("products")
+        .all()
     )
 
 # class OrderDetailView(DetailView):
