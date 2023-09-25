@@ -14,12 +14,30 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://2aafda21853c465635d06f5148bcbe0d@o4505939101417472.ingest.sentry.io/4505939108757504",
+    integrations=[DjangoIntegration()],
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True,
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
+
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -30,8 +48,11 @@ SECRET_KEY = 'django-insecure-5wrvn%69+#xrg!*#-qunh^mv11roq59@!@)kg-p6$rj7ywl14%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+    "127.0.0.1",
 
+]
 
 # Application definition
 
@@ -48,12 +69,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'drf_spectacular',
-    
+
     'myauth.apps.MyauthConfig',
     'requestdataapp.apps.RequestdataappConfig',
     'shopapp.apps.ShopappConfig',
     'myapiapp.apps.MyapiappConfig',
     'blogapp.apps.BlogappConfig',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -68,10 +90,9 @@ MIDDLEWARE = [
     'requestdataapp.middlewares.CountRequestsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 
 ]
-
-
 
 ROOT_URLCONF = 'first_django_project.urls'
 
@@ -96,7 +117,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'first_django_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -106,7 +126,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,7 +145,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -140,7 +158,7 @@ USE_TZ = True
 
 USE_L10N = True
 
-LOCALE_PATHS =[BASE_DIR/'locale']
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 LANGUAEGES = [
     ('en', _('English')),
@@ -153,14 +171,13 @@ LANGUAEGES = [
 STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR/'uploads'
+MEDIA_ROOT = BASE_DIR / 'uploads'
 
 # DEFAULT_FILE_STORAGE
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
@@ -181,24 +198,94 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
 }
 
+# LOGGING = {
+#     'version':1,
+#     'filters':{
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'handlers':{
+#         'console': {
+#             'level': 'DEBUG',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends':{
+#             'level': 'DEBUG',
+#             'handlers': ['console'],
+#         },
+#     },
+# }
+
+
+LOGFILE_NAME = BASE_DIR/"log.txt"
+LOGFILE_SIZE = 1 * 1024 * 1024
+LOGFILE_COUNT = 3
+
 LOGGING = {
-    'version':1,
-    'filters':{
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s',
         },
     },
-    'handlers':{
+    'handlers': {
         'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
         },
-    },
-    'loggers': {
-        'django.db.backends':{
-            'level': 'DEBUG',
-            'handlers': ['console'],
+        'logfile':{
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGFILE_NAME,
+            'maxBytes': LOGFILE_SIZE,
+            'backupCount': LOGFILE_COUNT,
+            'formatter': 'verbose',
         },
+
     },
+    'root': {
+        'handlers': [
+            'console',
+            'logfile',
+        ],
+        'level': 'INFO',
+    },
+}
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+
+]
+
+if DEBUG:
+    import socket
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS.append("10.0.2.2")
+    INTERNAL_IPS.extend(
+        [ip[: ip.rfind(".")] + ".1" for ip in ips]
+
+    )
+
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
 }

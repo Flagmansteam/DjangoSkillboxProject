@@ -5,7 +5,7 @@
 Разные view интернет-магазина: по товарам, заказам и т.д.
 
 """
-
+import logging
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from timeit import default_timer
@@ -22,6 +22,9 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import ProductSerializer, OrderSerializer
 from drf_spectacular.utils import  extend_schema, OpenApiResponse
+
+
+log = logging.getLogger(__name__) # стандартный формат создания нового логгера
 
 
 @extend_schema(description ="Products views CRUD")
@@ -91,6 +94,8 @@ class ShopIndexView(View):
             "products": products,
             "items": 5,
         }
+        log.debug("Products for shop index: %s", products) # передаём правило для форматирования
+        log.info("Rendering shop index")
         return render(request, 'shopapp/shop-index.html', context=context)
 
 
@@ -289,6 +294,13 @@ class ProductsDataExportView(View):
             }
             for product in products
         ]
+
+        elem = products_data[0]
+
+        # name = elem["name"]
+        name = elem["name"]
+        print("name:", name)
+
         return JsonResponse({"products": products_data})
 
 
