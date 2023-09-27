@@ -107,3 +107,126 @@ KeyError: 'naem'
 2023-09-25 07:11:10,188 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-09-25 07:13:00,391 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\views.py changed, reloading.
 2023-09-25 07:13:25,438 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:11:24,794 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:12:57,584 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\forms.py changed, reloading.
+2023-09-27 12:13:21,623 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:14:11,160 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\forms.py changed, reloading.
+2023-09-27 12:14:28,227 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:17:41,154 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-27 12:17:53,450 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:18:23,991 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-27 12:18:29,220 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:18:55,654 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-27 12:33:10,520 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-27 12:33:26,349 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 12:34:51,254 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py", line 62, in import_csv
+    return render(request, "admin/csv_form.html", context)
+           ^^^^^^
+NameError: name 'render' is not defined
+2023-09-27 12:35:51,618 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py", line 62, in import_csv
+    return render(request, "admin/csv_form.html", context)
+           ^^^^^^
+NameError: name 'render' is not defined
+2023-09-27 12:35:52,304 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-27 12:36:02,714 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 13:01:27,047 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-27 13:01:45,705 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-27 13:02:52,609 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py", line 81, in import_csv
+    products =[
+              ^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py", line 82, in <listcomp>
+    Product(**row)
+  File "C:\Python311\Lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Product() got unexpected keyword arguments: ' description'
+2023-09-27 13:04:03,589 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\db\models\fields\__init__.py", line 1741, in to_python
+    decimal_value = decimal.Decimal(value)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py", line 85, in import_csv
+    Product.objects.bulk_create(products) #создаЄм несколько объектов сразу с помощью bulk_create
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\query.py", line 803, in bulk_create
+    returned_columns = self._batched_insert(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\query.py", line 1831, in _batched_insert
+    self._insert(
+  File "C:\Python311\Lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1819, in execute_sql
+    for sql, params in self.as_sql():
+                       ^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1743, in as_sql
+    value_rows = [
+                 ^
+  File "C:\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1744, in <listcomp>
+    [
+  File "C:\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1745, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "C:\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1684, in prepare_value
+    return field.get_db_prep_save(value, connection=self.connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\fields\__init__.py", line 954, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\fields\__init__.py", line 1758, in get_db_prep_value
+    value = self.get_prep_value(value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\fields\__init__.py", line 1767, in get_prep_value
+    return self.to_python(value)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\db\models\fields\__init__.py", line 1743, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['«начение У "2299.00"Ф должно быть дес€тичным числом.']

@@ -4,7 +4,7 @@ from django.db.models.options import Options
 from django.http import HttpRequest,HttpResponse
 
 
-class ExportAsCSVMixin: #данный класс можно использовать, чтобы в админке проводить экспорт разных моделей
+class ExportAsCSVMixin: #данный класс можно использовать, чтобы в админке проводить экспорт разных моделей. Данные в формате csv
     def export_csv(self, request:HttpRequest, queryset:QuerySet):
         meta:Options =self.model.meta
         field_names =(field.name for field in meta.fields) #чтобы собрать список из строк-названий полей этой модели

@@ -1,9 +1,13 @@
+from io import TextIOWrapper
+from csv import DictReader
 from django.contrib import admin
 from django.db.models import QuerySet
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from .admin_mixins import ExportAsCSVMixin
 from .models import Product, Order, ProductImage
-
+from .forms import CSVImportForm
+from django.urls import path, re_path, include
+from django.shortcuts import render, redirect, get_object_or_404
 
 class OrderInline(admin.TabularInline):
     model = Product.orders.through
@@ -50,6 +54,50 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
             "description": "Extra options. Field 'archived' is for soft delete/"
         })
     ]
+
+    change_list_template ="shopapp/products_changelist.html"
+    def import_csv(self, request: HttpRequest) -> HttpResponse:
+        if request.method == "GET":
+            form = CSVImportForm() # инициализация экземпляра
+            context = {
+                "form": form,
+            }
+            return render(request, "admin/csv_form.html", context)
+        form = CSVImportForm(request.POST, request.FILES)
+        if not form.is_valid():
+            context = {
+                "form": form,
+            }
+
+            return render(request, "admin/csv_form.html", context, status=400)
+
+        #из байт получаем строчки
+        csv_file = TextIOWrapper(
+            form.files["csv_file"].file,
+            encoding=request.encoding,
+        )
+        reader = DictReader(csv_file)
+
+        products =[
+            Product(**row)
+            for row in reader
+        ]
+        Product.objects.bulk_create(products) #создаём несколько объектов сразу с помощью bulk_create
+        self.message_user(request, "Data from CSV was imported") # добавляем информацию на страницу, что данные были загружены
+
+        return redirect("..") #возвращаемся на одну страницу выше
+
+    def get_urls(self):
+        urls = super().get_urls()
+        new_urls = [
+            path(
+                "import-products-csv/",
+                self.import_csv,
+                name="import_products_csv",
+            ),
+        ]
+        return new_urls + urls
+
 
 
     def description_short(selfself, obj:Product)->str:
