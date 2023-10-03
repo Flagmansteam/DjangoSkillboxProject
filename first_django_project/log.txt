@@ -230,3 +230,624 @@ Traceback (most recent call last):
   File "C:\Python311\Lib\site-packages\django\db\models\fields\__init__.py", line 1743, in to_python
     raise exceptions.ValidationError(
 django.core.exceptions.ValidationError: ['«начение У "2299.00"Ф должно быть дес€тичным числом.']
+2023-09-28 17:22:04,557 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-28 17:25:08,871 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\views.py changed, reloading.
+2023-09-28 17:25:15,613 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-28 17:27:46,333 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-29 17:08:07,696 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-29 17:08:23,383 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-29 17:20:13,209 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-29 17:20:20,354 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-29 17:38:04,444 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-09-29 17:38:19,969 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 17:41:26,793 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 17:42:08,558 [INFO] shopapp.views: Rendering shop index
+2023-10-01 17:42:34,728 [WARNING] django.request: Method Not Allowed: /ru/shop/api/products/upload_csv/
+2023-10-01 23:17:44,520 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\first_django_project\settings.py changed, reloading.
+2023-10-01 23:17:49,796 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 23:21:04,175 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\urls.py changed, reloading.
+2023-10-01 23:21:12,515 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 23:39:37,633 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\urls.py changed, reloading.
+2023-10-01 23:39:48,888 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 23:49:21,266 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\urls.py changed, reloading.
+2023-10-01 23:49:36,229 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 23:50:24,867 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\models.py changed, reloading.
+2023-10-01 23:50:30,571 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 23:51:20,689 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\urls.py changed, reloading.
+2023-10-01 23:51:26,657 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-01 23:52:12,828 [ERROR] django.request: Internal Server Error: /blog/articles/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 38, in sentry_patched_render
+    return old_render(self)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 581, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 8: 'block'. Looking for one of: endblock.
+2023-10-02 00:01:19,151 [ERROR] django.request: Internal Server Error: /blog/articles/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 38, in sentry_patched_render
+    return old_render(self)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\defaulttags.py", line 967, in do_if
+    nodelist = parser.parse(("endif",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 28: 'endblock', expected 'endif'. Did you forget to register or load this tag?
+2023-10-02 00:01:56,709 [ERROR] django.request: Internal Server Error: /blog/articles/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 161, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: blockapp/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 38, in sentry_patched_render
+    return old_render(self)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Python311\Lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: blockapp/base.html
+2023-10-02 01:09:53,357 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\admin.py changed, reloading.
+2023-10-02 01:10:03,986 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 01:10:04,766 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001C710B8C3D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:10:04,774 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001C710B94590>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:10:04,781 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001C710B19B90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:10:53,746 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\admin.py changed, reloading.
+2023-10-02 01:10:54,076 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001C710B6EE90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:10:57,004 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001C710B6F050>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:10:57,145 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001C710B19CD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:05,145 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 01:11:05,764 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A308687E90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:05,771 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A3085E2A10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:05,831 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A308674C90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:20,957 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\admin.py changed, reloading.
+2023-10-02 01:11:21,103 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A30863A8D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:21,116 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A30863B6D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:21,132 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001A3085D6C90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:27,282 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 01:11:32,716 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B051B90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:32,770 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730AF95D10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:32,842 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B0F31D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:37,902 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B024C10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:38,101 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017309E9DD90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:38,412 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017309EC6350>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:38,704 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B591110>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:38,819 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5914D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:39,353 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5A3090>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:39,891 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1B8D90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:40,027 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1B9550>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:40,203 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B20C090>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:40,774 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B104310>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:41,327 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B106650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:41,457 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B2E0F90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:41,678 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B410790>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:41,747 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B4111D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:41,939 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B59E550>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:42,271 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5CB090>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:42,379 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5CB4D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:42,507 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5D3950>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:42,803 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5D7410>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:42,821 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5D77D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:42,961 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5D3950>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,190 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DD810>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,269 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DDC50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,392 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DE050>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,657 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DE690>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,743 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DEB50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,844 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DEF90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,978 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DE410>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:43,989 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5DFAD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,013 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F4190>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,088 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F4BD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,107 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F5190>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,127 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F5890>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,181 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F4B90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,281 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F67D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,310 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F6F10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,775 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F7F50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,857 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5E8450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:44,949 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B601B50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:45,012 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B611010>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:45,202 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6113D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:45,317 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B619ED0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:45,536 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B695B10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:45,670 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B64CBD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:45,770 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6C2390>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:46,047 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1DE350>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:46,067 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B058F10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:46,199 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6ED0D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:46,611 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B70B7D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:46,908 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B70BE90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:47,325 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6B9490>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:47,602 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B681A10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:47,697 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6FD150>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:47,862 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B70BB10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:48,434 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B60FF90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:49,235 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B60CB90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:49,536 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6103D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:49,896 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B752050>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:50,210 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B753FD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:50,292 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B77DD50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:50,549 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B77DD50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:50,900 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B7AFA10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:51,094 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B7D8ED0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:51,266 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017309DC6C90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:51,337 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B728290>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:51,518 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B64E010>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:51,794 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B639610>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:52,535 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B639310>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:52,869 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B471790>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:52,982 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6D9750>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,020 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B28E390>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,135 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B6035D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,213 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B680650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,223 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B681650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,269 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B681F50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,332 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B058F50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,369 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1DDF90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,423 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B0742D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,464 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B779750>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,486 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B779A10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,554 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B77B4D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,606 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B7FAA50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,619 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B7FACD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,697 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B7FB450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,785 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B80F910>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,823 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5F5450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:53,922 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B80C390>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:54,061 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B81ED50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:54,077 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B81F010>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:54,160 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B81FF50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:54,370 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B8323D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:54,496 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B8328D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:54,590 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B83A310>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:59,456 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B153010>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:59,719 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1511D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:11:59,795 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5C9DD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:00,039 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B8F4450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:00,262 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B8F4AD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:00,341 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B90D090>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:00,698 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B39EC90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:00,855 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B150110>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:01,096 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1D4210>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:01,268 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B7B3010>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:01,304 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B1D6810>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:01,324 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B746210>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:02,290 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5A3B10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:02,383 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B5A3B90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:12:02,557 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001730B309B90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-02 01:16:57,232 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\admin.py changed, reloading.
+2023-10-02 01:17:06,754 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 01:25:12,865 [ERROR] django.request: Internal Server Error: /blog/articles/2/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 38, in sentry_patched_render
+    return old_render(self)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: blogapp/article_detail.html
+2023-10-02 01:29:10,998 [ERROR] django.request: Internal Server Error: /blog/articles/2/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 38, in sentry_patched_render
+    return old_render(self)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Python311\Lib\site-packages\django\template\base.py", line 581, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 9: 'block'. Looking for one of: endblock.
+2023-10-02 01:47:08,732 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\urls.py changed, reloading.
+2023-10-02 01:47:16,242 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 01:47:59,747 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\urls.py changed, reloading.
+2023-10-02 01:48:08,599 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-03 17:05:20,653 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-03 17:05:22,965 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024E7CD561D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:05:23,059 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024E7CCB3690>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:05:23,184 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024E7CDA45D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:02,524 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\first_django_project\urls.py changed, reloading.
+2023-10-03 17:06:02,587 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024E7CD12CD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:02,598 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024E7CC10290>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:02,625 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024E7CD0A610>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:07,025 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-03 17:06:08,361 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002CE1D83B550>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:08,408 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002CE1D85BA50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:08,518 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002CE1D86D7D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:19,444 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\first_django_project\urls.py changed, reloading.
+2023-10-03 17:06:19,484 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002CE1D815890>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:19,499 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002CE1D5D0D50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:19,499 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002CE1D829650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:24,523 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-03 17:06:48,453 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489EA8BD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:48,492 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489EA9310>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:48,549 [INFO] shopapp.views: Rendering shop index
+2023-10-03 17:06:48,596 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489EAAC90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:52,538 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B48A142210>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:52,993 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489C99F90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:53,696 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489CC4410>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:53,960 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489C384D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:54,296 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489C39CD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:54,341 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489C7B050>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:54,880 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489EE5090>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:54,939 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489EE6C50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,007 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489F17850>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,148 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489FB79D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,221 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489F77310>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,234 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489F28150>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,337 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489B8FF10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,334 [WARNING] django.request: Not Found: /favicon.ico
+2023-10-03 17:06:55,360 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489B8EA10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,406 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489B8E350>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,479 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489E2D950>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,505 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489E68590>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:06:55,530 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489F5E990>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:47,765 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\first_django_project\settings.py changed, reloading.
+2023-10-03 17:07:48,246 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489BEC490>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:48,505 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489BCF650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:48,531 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489B94250>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:49,131 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489BC2750>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:49,220 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489BC83D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:49,231 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B489B58A10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:07:57,540 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-03 17:08:12,026 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D0453F0690>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:08:12,067 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D045447450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:08:12,173 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D045468310>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:08:12,702 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 167, in get_urls
+    return self._urls(page, protocol, domain)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 187, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+                                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 122, in _location
+    return self._get("location", item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 92, in _get
+    return attr(item)
+           ^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 132, in location
+    return item.get_absolute_url()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\models.py", line 92, in get_absolute_url
+    return reverse("blogapp:article", kwargs={"pk":self.pk})
+           ^^^^^^^
+NameError: name 'reverse' is not defined
+2023-10-03 17:08:14,535 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D045689C90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:08:14,631 [WARNING] urllib3.connectionpool: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D045689E50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:08:14,713 [WARNING] urllib3.connectionpool: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D045690E50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /api/4505939108757504/envelope/
+2023-10-03 17:08:55,098 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 167, in get_urls
+    return self._urls(page, protocol, domain)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 187, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+                                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 122, in _location
+    return self._get("location", item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 92, in _get
+    return attr(item)
+           ^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 132, in location
+    return item.get_absolute_url()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\models.py", line 92, in get_absolute_url
+    return reverse("blogapp:article", kwargs={"pk":self.pk})
+           ^^^^^^^
+NameError: name 'reverse' is not defined
+2023-10-03 17:09:54,202 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 167, in get_urls
+    return self._urls(page, protocol, domain)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 187, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+                                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 122, in _location
+    return self._get("location", item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 92, in _get
+    return attr(item)
+           ^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sitemaps\__init__.py", line 132, in location
+    return item.get_absolute_url()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\models.py", line 92, in get_absolute_url
+    return reverse("blogapp:article", kwargs={"pk":self.pk})
+           ^^^^^^^
+NameError: name 'reverse' is not defined
+2023-10-03 17:09:57,400 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\models.py changed, reloading.
+2023-10-03 17:10:06,755 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

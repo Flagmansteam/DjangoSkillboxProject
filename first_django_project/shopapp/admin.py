@@ -1,5 +1,6 @@
 from io import TextIOWrapper
 from csv import DictReader
+from .common import save_csv_products
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
@@ -72,17 +73,18 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
             return render(request, "admin/csv_form.html", context, status=400)
 
         #из байт получаем строчки
-        csv_file = TextIOWrapper(
-            form.files["csv_file"].file,
+
+        save_csv_products(
+            file=form.files["csv_file"].file,
             encoding=request.encoding,
         )
-        reader = DictReader(csv_file)
-
-        products =[
-            Product(**row)
-            for row in reader
-        ]
-        Product.objects.bulk_create(products) #создаём несколько объектов сразу с помощью bulk_create
+        # reader = DictReader(csv_file)
+        #
+        # products =[
+        #     Product(**row)
+        #     for row in reader
+        # ]
+        # Product.objects.bulk_create(products) #создаём несколько объектов сразу с помощью bulk_create
         self.message_user(request, "Data from CSV was imported") # добавляем информацию на страницу, что данные были загружены
 
         return redirect("..") #возвращаемся на одну страницу выше
@@ -130,6 +132,7 @@ class OrderAdmin(admin.ModelAdmin):
 
     def user_verbose(self, obj:Order)->str:   # imya polzovatelia vmesto username
         return obj.user.first_name or obj.user.username
+
 
 
 
