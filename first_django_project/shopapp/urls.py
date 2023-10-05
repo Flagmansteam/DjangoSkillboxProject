@@ -29,5 +29,6 @@ urlpatterns = [
     # path("orders/create", create_order, name="create_order"),
     path('cats/<int:catid>/', categories),
     re_path(r'^archive/(?P<year>[0-9]{4})/', archive),
+    path("products/latest/feed/", LatestProductsFeed(), name="products-feed"),
 ]
 

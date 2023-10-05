@@ -33,6 +33,6 @@ class GroupForm(forms.ModelForm):
 
 
 
-
+# Класс формы для загрузки файла
 class CSVImportForm(forms.Form):
     csv_file = forms.FileField()

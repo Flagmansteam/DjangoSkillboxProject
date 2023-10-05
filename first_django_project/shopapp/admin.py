@@ -102,7 +102,7 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
 
 
 
-    def description_short(selfself, obj:Product)->str:
+    def description_short(self, obj:Product)->str:
         if len(obj.description) < 48:
             return obj.description
         return obj.description[:48] + "...."
@@ -134,5 +134,49 @@ class OrderAdmin(admin.ModelAdmin):
         return obj.user.first_name or obj.user.username
 
 
+    change_list_template ="shopapp/orders-changelist.html"
+    def import_csv(self, request: HttpRequest) -> HttpResponse:
+        if request.method == "GET":
+            form = CSVImportForm() # инициализация экземпляра
+            context = {
+                "form": form,
+            }
+            return render(request, "admin/csv_form.html", context)
+        form = CSVImportForm(request.POST, request.FILES)
+        if not form.is_valid():
+            context = {
+                "form": form,
+            }
+
+            return render(request, "admin/csv_form.html", context, status=400)
+
+        #из байт получаем строчки
+
+        save_csv_orders(
+            file=form.files["csv_file"].file,
+            encoding=request.encoding,
+        )
+
+        self.message_user(request, "Data from CSV was imported") # добавляем информацию на страницу, что данные были загружены
+
+        return redirect("..") #возвращаемся на одну страницу выше
+
+    def get_urls(self):
+        urls = super().get_urls()
+        new_urls = [
+            path(
+                "import-orders-csv/",
+                self.import_csv,
+                name="import_orders_csv",
+            ),
+        ]
+        return new_urls + urls
+
+
+
+    def description_short(selfself, obj:Order)->str:
+        if len(obj.description) < 48:
+            return obj.description
+        return obj.description[:48] + "...."
 
 

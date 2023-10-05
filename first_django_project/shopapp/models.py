@@ -1,7 +1,7 @@
 from typing import Iterable
 from django.contrib.auth.models import User
 from django.db import models
-
+from django.urls import reverse
 
 
 def product_preview_directory_path(instance:"Product", filename: str)->str:
@@ -35,6 +35,9 @@ class Product(models.Model):
 
     def __str__(self) -> Iterable[str]:
         return f"Product(pk={self.pk}, name={self.name!r})"
+
+    def get_absolute_url(self):
+        return reverse("shopapp:product_details", kwargs={"pk": self.pk})
 
     # @property
     # def description_short(self)-> str:

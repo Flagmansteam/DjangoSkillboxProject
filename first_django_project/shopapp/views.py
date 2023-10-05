@@ -28,7 +28,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import ProductSerializer, OrderSerializer
 from drf_spectacular.utils import  extend_schema, OpenApiResponse
-
+from django.contrib.syndication.views import Feed
 
 log = logging.getLogger(__name__) # стандартный формат создания нового логгера
 
@@ -372,3 +372,24 @@ class OrdersDataExportView(UserPassesTestMixin, View):
 
 
 
+class LatestProductsFeed(Feed):
+    title = "Products (latest)"
+    description = "Updates on changes and addition products"
+    link = reverse_lazy("shopapp:products_list")
+
+    def items(self):
+        return(
+            Product.objects
+            .filter(created_at__isnull=False)
+            .order_by("-created_at")[:20]
+        )
+
+    def product_name(self, product: Product):
+        return product.name
+
+    def product_description(self, product: Product):
+        return product.description[:200]
+
+
+    def item_link(self, item: Product):
+        return reverse("shopapp:products_list", kwargs={"pk":item.pk})

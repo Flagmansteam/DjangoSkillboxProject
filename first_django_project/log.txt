@@ -851,3 +851,51 @@ Traceback (most recent call last):
 NameError: name 'reverse' is not defined
 2023-10-03 17:09:57,400 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\blogapp\models.py changed, reloading.
 2023-10-03 17:10:06,755 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-04 00:23:20,465 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-04 00:23:54,285 [WARNING] django.request: Not Found: /
+2023-10-04 00:23:56,844 [WARNING] django.request: Not Found: /favicon.ico
+2023-10-04 00:51:56,675 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\views.py changed, reloading.
+2023-10-04 00:52:02,643 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-04 00:54:56,383 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\views.py changed, reloading.
+2023-10-04 00:55:01,695 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-04 01:00:13,327 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\urls.py changed, reloading.
+2023-10-05 15:55:29,594 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-05 16:02:44,839 [WARNING] django.request: Not Found: /
+2023-10-05 16:02:47,794 [WARNING] django.request: Not Found: /favicon.ico
+2023-10-05 16:21:53,693 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-10-05 16:22:00,775 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-05 16:27:57,739 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\forms.py changed, reloading.
+2023-10-05 16:28:05,976 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-05 16:34:06,822 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-10-05 16:34:15,227 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-05 16:35:24,512 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-10-05 16:35:34,795 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-05 16:38:52,889 [WARNING] django.request: Not Found: /admin/shopapp/orders
+2023-10-05 16:39:05,813 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\views.py", line 38, in sentry_patched_render
+    return old_render(self)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\sentry_sdk\integrations\django\templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\response.py", line 71, in resolve_template
+    return get_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: shopapp/orders_changelist.html
+2023-10-05 16:54:08,306 [INFO] django.utils.autoreload: C:\PyCharm Community Edition 2022.3\python_django_1\first_django_project\shopapp\admin.py changed, reloading.
+2023-10-05 16:54:20,653 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
