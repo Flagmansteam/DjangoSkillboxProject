@@ -80,6 +80,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware', # создаём кэш при обращении, запускается во время обработки ответа Response. Запускается последним
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -128,6 +129,14 @@ DATABASES = {
     }
 }
 
+
+CACHES ={
+    "default":{
+        "BACKEND":"django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": "C:/Foo/Bar"
+    },
+
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

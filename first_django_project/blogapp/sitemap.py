@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from .models import Article
+from .models import *
 
 
 class BlogSitemap(Sitemap):
@@ -11,4 +11,5 @@ class BlogSitemap(Sitemap):
 
     def lastmod(self, obj: Article):
         return obj.published_at
+
 
