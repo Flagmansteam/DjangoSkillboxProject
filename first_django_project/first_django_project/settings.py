@@ -80,7 +80,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware', # создаём кэш при обращении, запускается во время обработки ответа Response. Запускается последним
+    # 'django.middleware.cache.UpdateCacheMiddleware', # создаём кэш при обращении, запускается во время обработки ответа Response. Запускается последним
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -93,6 +93,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware', #кэшируем  ответы на запрос методами get head По умолчанию 10 минут.
 
 ]
 
@@ -129,11 +130,12 @@ DATABASES = {
     }
 }
 
-
+#где и как храним кэш
 CACHES ={
     "default":{
+        # "BACKEND":"django.core.cache.backends.dummy.DummyCache", # выполнение реального кэширования не происходит
         "BACKEND":"django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": "C:/Foo/Bar"
+        "LOCATION": "C:/Foo/Bar",
     },
 
 }

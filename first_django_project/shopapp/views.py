@@ -14,6 +14,8 @@ from rest_framework.parsers import MultiPartParser #позвоялет парс�
 from django.contrib.auth.models import Group
 from .common import save_csv_products
 from django.urls import reverse, reverse_lazy
+from django.core.cache import cache
+from django.utils.decorators import method_decorator # для декорации методов в т.ч в rest framework
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Product, Order, ProductImage
@@ -27,8 +29,10 @@ from rest_framework.decorators import action # можно поключить л�
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import ProductSerializer, OrderSerializer
+from django.core.serializers import serialize
 from drf_spectacular.utils import  extend_schema, OpenApiResponse
 from django.contrib.syndication.views import Feed
+from django.views.decorators.cache import cache_page
 
 log = logging.getLogger(__name__) # стандартный формат создания нового логгера
 
@@ -62,6 +66,12 @@ class ProductViewSet(ModelViewSet):
         "description",
         "price",
     ]
+
+    @method_decorator(cache_page(60 *2))
+    def list(self,*args, **kwargs): # переопределили роительский метод и вызвали родительский метод
+        print("hello products list")
+        return super().list(*args, **kwargs)
+
 
     @action(methods=["get"], detail=False) #путь к download_csv должен быть построен на основе адреса для списка элементов
     def download_csv(self, request:Request):
@@ -116,7 +126,6 @@ class ProductViewSet(ModelViewSet):
         return super().retrieve(*args,**kwargs)
 
 
-
 class OrderViewSet(ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
@@ -130,6 +139,7 @@ class OrderViewSet(ModelViewSet):
     ordering_fields = ["delivery_adress","description","products", "user", "promocode",]
 
 class ShopIndexView(View):
+    @method_decorator(cache_page(60 * 2))
     def get(self, request: HttpRequest) -> HttpResponse:
         products = [
             ('Laptop', 1999),
@@ -143,6 +153,7 @@ class ShopIndexView(View):
         }
         log.debug("Products for shop index: %s", products) # передаём правило для форматирования
         log.info("Rendering shop index")
+        print("shop index context", context)
         return render(request, 'shopapp/shop-index.html', context=context)
 
 
@@ -161,21 +172,17 @@ class GroupsListView(View):
 
         return redirect(request.path)
 
-
 class ProductDetailsView(DetailView):
     template_name = "shopapp/products-details.html"
     # model = Product
     queryset = Product.objects.prefetch_related("images")
     context_object_name = "product"
 
-
-
 class ProductsListView(ListView):
     template_name = "shopapp/products-list.html"
     # model = Product
     context_object_name = "products"
     queryset = Product.objects.filter(archived=False)
-
 
 def create_product(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
@@ -193,7 +200,6 @@ def create_product(request: HttpRequest) -> HttpResponse:
     }
     return render(request, "shopapp/create-product.html", context=context)
 
-
 def create_order(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = OrderForm(request.POST)
@@ -208,14 +214,11 @@ def create_order(request: HttpRequest) -> HttpResponse:
     }
     return render(request, "shopapp/create-order.html", context=context)
 
-
 def categories(request, catid):
     return HttpResponse(f"<h1> Test categories </h1><p>{catid}</p>")
 
-
 def archive(request, year):
     return HttpResponse(f"<h1> Archive</h1><p>{year}</p>")
-
 
 class ProductCreateView(UserPassesTestMixin,CreateView):
     def test_func(self):
@@ -268,14 +271,10 @@ class ProductDeleteView(DeleteView):
         return HttpResponseRedirect(success_url)
 
 
-
-
 # class OrderListView(ListView):
 #     template_name = "shopapp/order_list.html"
 #     model = Order
 #     context_object_name = "object_list"
-
-
 
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
@@ -285,11 +284,11 @@ class OrderListView(LoginRequiredMixin, ListView):
         .all()
     )
 
+
 # class OrderDetailView(DetailView):
 #     template_name = "shopapp/order_detail.html"
 #     model = Order
 #     context_object_name = "object_list"
-
 
 class OrderDetailView(PermissionRequiredMixin,DetailView):
     permission_required = "view_order"
@@ -331,25 +330,28 @@ class OrderDeleteView(DeleteView):
 
 class ProductsDataExportView(View):
     def get(self, request: HttpRequest)-> JsonResponse:
-        products = Product.objects.order_by("pk").all()
-        products_data = [
-            {
-                "pk": product.pk,
-                "name": product.name,
-                "price": product.price,
-                "archived": product.archived,
-            }
-            for product in products
-        ]
+        # данные вынимаются из кэша до обращения к базе данных
+        cache_key = "products_data_export" # low level cache api
+        products_data = cache.get(cache_key)
+        if products_data is None:
+            products = Product.objects.order_by("pk").all()
+            products_data = [
+                {
+                    "pk": product.pk,
+                    "name": product.name,
+                    "price": product.price,
+                    "archived": product.archived,
+                }
+                for product in products
+            ]
 
-        elem = products_data[0]
+            elem = products_data[0]
 
-        # name = elem["name"]
-        name = elem["name"]
-        print("name:", name)
-
+            # name = elem["name"]
+            name = elem["name"]
+            print("name:", name)
+            cache.set(cache_key, products_data, 300)
         return JsonResponse({"products": products_data})
-
 
 
 class OrdersDataExportView(UserPassesTestMixin, View):
@@ -368,9 +370,6 @@ class OrdersDataExportView(UserPassesTestMixin, View):
               for order in orders
           ]
           return JsonResponse({"orders": orders_data})
-
-
-
 
 class LatestProductsFeed(Feed):
     title = "Products (latest)"
@@ -393,3 +392,45 @@ class LatestProductsFeed(Feed):
 
     def item_link(self, item: Product):
         return reverse("shopapp:products_list", kwargs={"pk":item.pk})
+
+@method_decorator(cache_page(60*5), name='get')
+class UserOrdersListView(LoginRequiredMixin, ListView):
+    model = Order
+    template_name = 'user_orders.html'
+    context_object_name = 'orders'
+
+    def get_queryset(self): # метод возвращает набор данных из URL запроса для отображения на странице.
+        user_id = self.kwargs.get('user_id')  # Получаем ID пользователя из URL
+        user = get_object_or_404(User, pk=user_id)  # Получаем пользователя или выводим ошибку 404
+
+        return Order.objects.filter(user=user)  # Возвращаем только заказы выбранного пользователя
+
+    def get_context_data(self, **kwargs):  # метод возвращает словарь данных контекста для шаблона.
+        context = super().get_context_data(**kwargs)
+        user_id = self.kwargs.get('user_id')
+        user = get_object_or_404(User, pk=user_id)
+        context['user'] = user  # Добавляем выбранного пользователя в контекст
+
+        return context
+
+class UserOrdersExportView(View):
+    def get_queryset(self):
+        user_id = self.kwargs.get('user_id')  # Получаем ID пользователя из URL
+        user = get_object_or_404(User, pk=user_id)  # Получаем пользователя или выводим ошибку 404
+        orders = Order.objects.filter(user=user)
+        return orders
+    def get(self, request, *args, **kwargs) -> JsonResponse:
+
+        orders_data = [
+            {
+                'order_id': order.id,
+                'address': order.delivery_adress,
+                'promocode': order.promocode,
+                'user': order.user.username,
+            }
+            for order in self.get_queryset()
+        ]
+        cache.set('orders_data', orders_data, 300)
+        return JsonResponse({"orders": orders_data})
+
+

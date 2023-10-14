@@ -1,3 +1,4 @@
+from random import random
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
@@ -11,7 +12,7 @@ from django.views.generic import TemplateView, CreateView, UpdateView, ListView 
 from .models import Profile
 from .forms import *
 from django.utils.translation import gettext_lazy as _, ngettext
-
+from django.views.decorators.cache import cache_page
 
 class HelloView(View):
     welcome_message = _("Hello world!")
@@ -29,7 +30,6 @@ class HelloView(View):
             f"<h1>{self.welcome_message}</h1>"
             f"\n<h2>{products_line}</h2>"
         )
-
 
 # class AboutMeView(TemplateView):
 #     template_name ="myauth/about-me.html"
@@ -87,9 +87,10 @@ def set_cookie_view(request:HttpRequest)->HttpResponse:
     response.set_cookie("fizz", "buzz", max_age=3600)
     return response
 
+@cache_page(60 * 2)
 def get_cookie_view(request:HttpRequest)->HttpResponse:
     value = request.COOKIES.get("fizz","default value")
-    return HttpResponse(f"Cookie value: {value!r}")
+    return HttpResponse(f"Cookie value: {value!r} + {random()}") # добавили random чтобы понять загрузилась ли страница заново или была взята из кэша
 
 @permission_required("myauth:view_profile", raise_exception=True)
 def set_session_view(request:HttpRequest)->HttpResponse:

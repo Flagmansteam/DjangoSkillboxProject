@@ -1,7 +1,7 @@
 from django.urls import path, re_path, include
 from .views import *
 from rest_framework.routers import DefaultRouter
-
+from django.views.decorators.cache import cache_page
 
 app_name = "shopapp"
 
@@ -11,6 +11,7 @@ routers.register("orders", OrderViewSet)
 
 
 urlpatterns = [
+    # path("", cache_page(60 * 3)(ShopIndexView.as_view()), name="index"), # кэширование без использования middleware
     path("", ShopIndexView.as_view(), name="index"),
     path("api/", include(routers.urls)),
     path("groups/", GroupsListView.as_view(), name="groups_list"),
@@ -29,6 +30,8 @@ urlpatterns = [
     # path("orders/create", create_order, name="create_order"),
     path('cats/<int:catid>/', categories),
     re_path(r'^archive/(?P<year>[0-9]{4})/', archive),
+    path("users/<int:user_id>/orders/", UserOrdersListView.as_view(), name='user_orders'),
+    path('users/<int:user_id>/orders/export/', UserOrdersExportView.as_view(), name='user_orders_export'),
     path("products/latest/feed/", LatestProductsFeed(), name="products-feed"),
 ]
 
