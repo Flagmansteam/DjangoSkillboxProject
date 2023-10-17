@@ -419,18 +419,22 @@ class UserOrdersExportView(View):
         user = get_object_or_404(User, pk=user_id)  # Получаем пользователя или выводим ошибку 404
         orders = Order.objects.filter(user=user)
         return orders
+
     def get(self, request, *args, **kwargs) -> JsonResponse:
+        cache_key = f'orders_data_{user_id}'  # Формируем уникальный кеш-ключ для каждого пользователя
+        orders_data = cache.get(cache_key)  # Пытаемся получить данные из кеша
 
-        orders_data = [
-            {
-                'order_id': order.id,
-                'address': order.delivery_adress,
-                'promocode': order.promocode,
-                'user': order.user.username,
-            }
-            for order in self.get_queryset()
-        ]
-        cache.set('orders_data', orders_data, 300)
+        if not orders_data:  # Если данных нет в кеше
+            orders_data = [
+                {
+                    'order_id': order.id,
+                    'address': order.delivery_adress,
+                    'promocode': order.promocode,
+                    'user': order.user.username,
+                }
+                for order in self.get_queryset()
+            ]
+            cache.set(cache_key, orders_data, 300)  # Кешируем данные с уникальным ключом
+
         return JsonResponse({"orders": orders_data})
-
 
