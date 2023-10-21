@@ -1,32 +1,41 @@
-version: "3.9"
+version: "3.11"
 
 services:
   app:
     build:
       dockerfile: ./Dockerfile
     command:
-      - "python"
-      - "manage.py"
-      - "runserver"
-      - "0.0.0.0:8080"
-    ports:
-      - "8000:8080"
+      - "gunicorn"
+      - "first_django_project.wsgi:application"
+      - "--bind"
+      - "0.0.0.0:8000"
+    ports: # пробрасываем порты. чтобы приложение было доступно снаружи контейнера
+      - "8000:8000"
+    restart: always  # автоматический перезапуск контейнера может привести к накоплению ошибок и проблем в работе системы
+    env_file: # перечисление файлов из которых можно брать параметры конфигурации
+      - .env
+
     logging:
-      driver: loki
+      driver: "json-file"
       options:
+        max-file: "10"
+        max-size: "200k"
+
+    volumes: # прокиываем локальную директорию в докер-контейнер,позволяет более гибко управлять файлами и папками
+      - ./first-django-rpoject/database:/app/database
 #        loki-url: http://localhost:3100/loki/api/v1/push
-        loki-url: http://host/docker.internal:3100/loki/api/v1/push
-
-
-  grafana:
-     image: grafana/grafana:9.2.15
-     environment:
-       - GF_AUTH_ANONYMOUS_ENABLED=true
-       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-     ports:
-       - "3000:3000"
-
-  loki:
-     image: grafana/loki:2.8.1
-     ports:
-         - "3100:3100"
+#        loki-url: http://host/docker.internal:3100/loki/api/v1/push
+#
+#
+#  grafana:
+#     image: grafana/grafana:9.2.15
+#     environment:
+#       - GF_AUTH_ANONYMOUS_ENABLED=true
+#       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+#     ports:
+#       - "3000:3000"
+#
+#  loki:
+#     image: grafana/loki:2.8.1
+#     ports:
+#         - "3100:3100"
