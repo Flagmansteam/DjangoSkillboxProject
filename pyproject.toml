@@ -32,10 +32,8 @@ jsonschema-specifications = "^2023.7.1"
 mccabe = "^0.7.0"
 peewee = "^3.15.4"
 pillow = "^10.1.0"
-pipenv = "^2023.6.18"
 platformdirs = "^2.6.2"
 pycodestyle = "^2.11.0"
-pydantic = "^1.10.2"
 pydocstyle = "^6.3.0"
 pyflakes = "^3.1.0"
 pyTelegramBotAPI = "^4.9.0"
@@ -55,7 +53,6 @@ uritemplate = "^4.1.1"
 urllib3 = "^1.26.13"
 virtualenv = "^20.17.1"
 virtualenv-clone = "^0.5.7"
-whitenoise = "^6.5.0"
 
 [build-system]
 requires = ["poetry-core"]
